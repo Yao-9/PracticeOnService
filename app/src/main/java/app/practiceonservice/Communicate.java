@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+import android.widget.Toast;
 
 public class Communicate extends Service {
 	private final IBinder mBinder = new LocalBinder();
@@ -14,11 +15,12 @@ public class Communicate extends Service {
 
 	public class LocalBinder extends Binder {
 		Communicate getService() {
-			return Communicate.this;
-		}
+            return Communicate.this;
+        }
 	}
 
 	public Communicate() {
+
 	}
 
 	@Override
@@ -29,6 +31,10 @@ public class Communicate extends Service {
 	public void setAct1Info(String s) {
 		this.act1Info = s;
 	}
+
+    public void showAct1String() {
+        Toast.makeText(this, "String of Activity 1 is " + act1Info, Toast.LENGTH_SHORT).show();
+    }
 
 	public void setAct2Info(String s) {
 		this.act2Info = s;
